@@ -5,6 +5,7 @@ const app = express();
 const rawData = require('./rawData');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
+const port = process.env.PORT || 3000;
 const client = require('twilio')(accountSid, authToken);
 
 app.use(express.json());
@@ -76,4 +77,4 @@ app.get('/phone/:phone', (req, res) => {
     });
   });
 
-app.listen(3000);
+app.listen(port);
